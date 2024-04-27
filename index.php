@@ -47,28 +47,32 @@ https://templatemo.com/tm-589-lugx-gaming
 
 
 .nav-link {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     padding: 0px; /* ajuste o valor conforme necessário */
+    
 }
 
 
 .dropdown-item {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     padding: 0px; /* ajuste o valor conforme necessário */
     margin-top: 5px;
+    
 }
 
 .dropdown-item2 {
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     padding: 0px; /* ajuste o valor conforme necessário */
     margin: 0px;
     height: 10px;
+    width: 5% !important;
+  
 }
 
 </style>
@@ -111,6 +115,10 @@ https://templatemo.com/tm-589-lugx-gaming
               <li><a href="shop.html">Estabelecimentos</a></li>
               <li><a href="contact.html">Entre em Contato</a></li>
 
+
+            
+
+
   <?php if(!isset($_SESSION['usuario'])) { ?>
 
               <li><a href="tela_login1.php" id="btn-login">Login</a></li>
@@ -123,24 +131,31 @@ https://templatemo.com/tm-589-lugx-gaming
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Meus Dados</a></li>
-            <li><a class="dropdown-item" href="#">Minhas Avaliações</a></li>
+            <li><a class="dropdown-item" id="avaliações" href="#">Minhas Avaliações</a></li>           
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item2" href="sair.php">Sair</a></li>
+            <li ><a class="dropdown-item" id="sair" href="sair.php"><i class="bi bi-arrow-bar-left"></i> Sair</a></li>
+           
           </ul>
         </li>
+
+
 
       <?php }elseif(isset($_SESSION['usuario']) && $_SESSION['usuario']['id_tipo'] == 1){ ?>
 
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown menu-azul">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="btn-login" aria-expanded="false">
             Meu Estabelecimento
           </a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="estabelecimento_cadastro.php">Meu Cadastro </a></li>
             <li><a class="dropdown-item" href="#">Meu Estabelecimento</a></li>
             <li><a class="dropdown-item" href="#">Minhas Avaliações</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item2" href="sair.php">Sair</a></li>
+            <li><a class="dropdown-item" href="sair.php"><i class="bi bi-box-arrow-left"></i></a></li>
+
+
+            
           </ul>
         </li>
 
@@ -520,6 +535,7 @@ https://templatemo.com/tm-589-lugx-gaming
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/isotope.min.js"></script>

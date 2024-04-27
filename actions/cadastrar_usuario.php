@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 
     if($usuario->Cadastrar() == 1){
-        header('Location: ../index.php');
+        header('Location: ../telalogin1.php');
     }else{
        echo "Falha ao cadastrar!.";
     }
