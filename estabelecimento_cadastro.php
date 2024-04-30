@@ -1,8 +1,22 @@
 <?php
 
-require_once('actions/classes/Usuario.class.php');
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo "Falha! Você precisa estar logado(a).";
+  die();
+}
 
+
+require_once('actions/classes/Usuario.class.php');
 $usuario = new Usuario();
+
+require_once("actions/classes/Categoria.class.php");
+$c = new Categoria();
+$lista_categorias = $c->Listar();
+
+require_once('actions/classes/Estabelecimento.class.php');
+$estabelecimento = new Estabelecimento();
+
 
 
 ?>
@@ -73,28 +87,39 @@ https://templatemo.com/tm-589-lugx-gaming
 
               <!-- Formulário de cadastro -->
 
-              <form id="formCadastro" action="actions/cadastrar_estabelecimento.php" method="POST">
+              <form id="formCadastro" action="actions/cadastrar_estabelecimento.php" method="POST" enctype="multipart/form-data">
 
 
                 <div class="mb-3">
                   <label for="nome2Cad" class="form-label">Nome: </label>
-                  <input type="text" class="form-control" id="senhaCad" name="nome">
+                  <input type="text" class="form-control" id="nome" name="nome">
                 </div>
 
 
                 <div class="mb-3">
                   <label for="nomeCad" class="form-label">Categoria: </label>
-                  <input type="text" class="form-control" id="nomeCad" aria-describedby="nomeCadHelp" name="id_categoria">
+
+
+                  <select class="form-control" id="categoriaProduto" name="id_categoria">
+                    <?php foreach ($lista_categorias as $cat) {
+                        if ($cat['id'] == $dados['id_categoria']) { ?>
+                            <option selected value="<?= $cat['id']; ?>"><?= $cat['nome']; ?></option>
+                        <?php  } else { ?>
+                            <option value="<?= $cat['id']; ?>"><?= $cat['nome']; ?></option>
+                    <?php }
+                    } ?>
+                </select>
+                  
                 </div>
 
                 <div class="mb-3">
                   <label for="senhaCad" class="form-label">Descricao:</label>
-                  <input type="text" class="form-control" id="senhaCad" name="descricao">
+                  <input type="text" class="form-control" id="descricao" name="descricao">
                 </div>
 
                 <div class="mb-3">
                   <label for="fotoProduto">Foto</label>
-                  <input type="file" class="form-control-file" id="fotoProduto" name="foto">
+                  <input type="file" class="form-control-file" id="foto" name="foto">
                 </div>
 
 
