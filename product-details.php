@@ -204,7 +204,7 @@ https://templatemo.com/tm-589-lugx-gaming
           </form> -->
           <ul>
             <!-- <li><span>Game ID:</span> COD MMII</li> -->
-            <li><span>Categoria:</span><?= $dados['id_categoria'] ?> </li>
+            <li><span>Categoria:</span><?= $dados['nome_categoria'] ?> </li>
             <!-- <li><span>Multi-tags:</span> <a href="#">War</a>, <a href="#">Battle</a>, <a href="#">Royal</a></li> -->
           </ul>
         </div>

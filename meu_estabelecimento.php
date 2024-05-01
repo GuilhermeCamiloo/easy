@@ -8,7 +8,7 @@ $lista_categorias = $c->Listar();
 
 require_once('actions/classes/Estabelecimento.class.php');
 $e = new Estabelecimento();
-$estabelecimento = $e->ListarTudo();
+$estabelecimento = $e->ListarPorUsuario();
 
 session_start();
 
@@ -84,6 +84,25 @@ https://templatemo.com/tm-589-lugx-gaming
     width: 5% !important;
   
 }
+
+.container1{
+
+text-align: center;
+
+
+}
+
+.título{
+color: white ;
+margin-bottom: 2%;
+}
+
+.center-image{
+
+    justify-content: center;
+    
+}
+
 
 </style>
 
@@ -181,40 +200,151 @@ https://templatemo.com/tm-589-lugx-gaming
   </header>
   <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner">
-    <div class="container">
+   <div class="main-banner">
+    <div class="container1">
       <div class="row">
-        <div class="col-lg-6 align-self-center">
+        <div class="col-lg-12 align-self-center">
           <div class="caption header-text">
-            <h6>Bem vindo a MercadoEasy!</h6>
-            <h2>O COMÉRCIO NA SUA MÃO!</h2>
-            <p> Aqui você encontra a maior variedade de estabelecimentos da sua região! Pesquise abaixo o que deseja.
-            </p>
-            <div class="search-input">
-              <form id="search" action="#">
-
-
-
-
-                <input type="text" placeholder=" Procure Aqui!" id='searchText' name="searchKeyword" onkeypress="handle" />
-                <button role="button">
-                  Procurar
-                </button>
-              </form>
+            <h1 class="título">Meus Estabelecimentos</h1>          
+          </div>
+        </div>
+        <div class="container mt-5">
+       
+        <div class="row mb-3">
+            <div class="col d-flex justify-content-end">
+                <button type="button" class="btn btn-success mx-1" data-toggle="modal" data-target="#modalCadastro"><i
+                        class="bi bi-plus-circle"></i> Cadastrar Produto</button>
+                <a class="btn btn-danger mx-1 text-white" href="sair.php"><i class="bi bi-box-arrow-right"></i> Sair</a>
             </div>
-          </div>
         </div>
-        <div class="col-lg-4 offset-lg-2">
-          <div class="right-image">
-            <img src="assets/images/pizzaria.jpg" alt="">
-            <span class="price">A</span>
-
-          </div>
+        <table class="table table-striped table-hover">
+            <thead>
+ 
+                <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+ 
+                <?php foreach ($estabelecimento as $e) { ?>
+                    <tr>
+                        
+                        <th><img src="fotos/<?= $e['foto']; ?>" width="150px" ></th>
+                        <th><?= $e['nome']; ?></th>
+                        <th><?= $e['descricao']; ?></th>
+                        <th><?= $e['id_categoria']; ?></th>
+                        
+                       
+                        <td><a href="editar.php?id=<?= $e['id']; ?>">Editar</a> | <a
+                        href="actions/apagar_produto.php?id=<?= $e['id']; ?>">Excluir</a></td>
+                    <?php } ?>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ 
+    <!-- Modal de Cadastro -->
+    <div class="modal fade" id="modalCadastro" tabindex="-1" role="dialog" aria-labelledby="modalCadastroLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="actions/cadastrar_produto.php" method="POST" enctype="multipart/form-data">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalCadastroLabel">Cadastro de Produto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+ 
+                        <div class="form-group">
+                            <label for="nomeProduto">Nome</label>
+                            <input type="text" class="form-control" id="nomeProduto" name="nome"
+                                placeholder="Digite o nome do produto">
+                        </div>
+                        <div class="form-group">
+                            <label for="fotoProduto">Foto</label>
+                            <input type="file" class="form-control-file" id="fotoProduto" name="foto">
+                        </div>
+                        <div class="form-group">
+                            <label for="descricaoProduto">Descrição</label>
+                            <textarea class="form-control" id="descricaoProduto" rows="3" name="descricao"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoriaProduto">Categoria</label>
+                            <select class="form-control" id="categoriaProduto" name="id_categoria">
+ 
+                                <?php foreach ($lista_categorias as $cat) { ?>
+ 
+                                    <option value="<?= $cat['id']; ?>"><?= $cat['nome']; ?></option>
+ 
+                                <?php } ?>
+ 
+                            </select> <br>
+                            <div class="row">
+                                <div class="col d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-warning" data-toggle="modal"
+                                        data-target="#modalAddCategoria">Adicionar Categoria</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="estoqueProduto">Estoque</label>
+                            <input type="number" class="form-control" id="estoqueProduto"
+                                placeholder="Digite a quantidade em estoque" name="estoque">
+                        </div>
+                        <div class="form-group">
+                            <label for="precoProduto">Preço</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                <input type="number" class="form-control" id="precoProduto" placeholder="Digite o preço"
+                                    name="preco">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
         </div>
+    </div>
+    </div>
+    <div class="modal fade" id="modalAddCategoria" tabindex="-1" role="dialog" aria-labelledby="modalAddCategoriaLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <form action="actions/cadastrar_categoria.php" method="POST">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalAddCategoriaLabel">Adicionar Categoria</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nomeCategoria">Nome da Categoria</label>
+                            <input type="text" class="form-control" id="nomeCategoria"
+                                placeholder="Digite o nome da categoria" name="categoria">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
       </div>
     </div>
   </div>
-
+<!--  
   <div class="features">
     <div class="container">
       <div class="row">
@@ -276,24 +406,24 @@ https://templatemo.com/tm-589-lugx-gaming
             <a href="shop.php">View All</a>
           </div>
         </div>
-        <?php foreach ($estabelecimento as $e) { ?>
+        
         <div class="col-lg-3 col-md-6">
           <div class="item">
             <div class="thumb">
-              <a href="product-details.php?id=<?= $e['estabelecimento_id'];?>"><img src="fotos/<?= $e['foto']; ?>" alt="" width="300px" height="300px"></a>
+              <a href="product-details.php?id="><img src="fotos/" alt="" width="300px" height="300px"></a>
             </div>
             <div class="down-content">
-              <span class="category"><?= $e ['nome_categoria'] ?></span>
-              <h4><?= $e ['nome'] ?></h4>
+              <span class="category"></span>
+              <h4></h4>
               <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
-        <?php } ?>
+       
       </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- <div class="section most-played">
     <div class="container">
@@ -385,7 +515,7 @@ https://templatemo.com/tm-589-lugx-gaming
     </div>
   </div> -->
 
-  <div class="section categories">
+  <!-- <div class="section categories">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -487,7 +617,7 @@ https://templatemo.com/tm-589-lugx-gaming
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <footer>
     <div class="container">

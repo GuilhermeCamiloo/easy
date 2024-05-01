@@ -44,7 +44,7 @@ class Estabelecimento
 
     public function ListarTudo()
     {
-        $sql = "SELECT * FROM estabelecimentos";
+        $sql = "SELECT * FROM view_estabelecimento";
         $banco = Banco::conectar();
         $comando = $banco->prepare($sql);
         $comando->execute();
@@ -55,12 +55,39 @@ class Estabelecimento
 
     public function ListarPorId()
     {
-        $sql = "SELECT * FROM estabelecimentos WHERE id = ?";
+        $sql = "SELECT * FROM view_estabelecimento";
         $banco = Banco::conectar();
         $comando = $banco->prepare($sql);
-        $comando->execute([$this->id]);
+        $comando->execute();
         $arr_resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
         Banco::desconectar();
         return $arr_resultado;
     }
+    public function Editar(){
+        $sql = "UPDATE estabelecimentos SET id_categoria=?, nome=?,  descricao=? WHERE id = ?";
+        $banco = Banco::conectar();
+        $comando = $banco->prepare($sql);
+        $comando->execute([$this->id_categoria, $this->nome, $this->descricao, $this->id]);
+        Banco::desconectar();
+        return $comando->rowCount();
+    }
+    public function Apagar(){
+        $sql = "DELETE FROM estabelecimentos WHERE id = ?";
+        $banco = Banco::conectar();
+        $comando = $banco->prepare($sql);
+        $comando->execute([$this->id]);
+        Banco::desconectar();
+        return $comando->rowCount();
+    }
+    public function ListarPorUsuario()
+    {
+        $sql = "SELECT * FROM estabelecimentos WHERE id_usuario = ?";
+        $banco = Banco::conectar();
+        $comando = $banco->prepare($sql);
+        $comando->execute([$this->id_usuario]);
+        $arr_resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+        Banco::desconectar();
+        return $arr_resultado;
+    }
+    
 }
