@@ -1,6 +1,10 @@
 <?php
 
-
+session_start();
+if(!isset($_SESSION['usuario'])){
+  echo "Falha! Você precisa estar logado(a).";
+  die();
+}
 
 require_once("actions/classes/Categoria.class.php");
 $c = new Categoria();
@@ -8,16 +12,16 @@ $lista_categorias = $c->Listar();
 
 require_once('actions/classes/Estabelecimento.class.php');
 $e = new Estabelecimento();
+$e->id_usuario = $_SESSION['usuario']['id'];
 $estabelecimento = $e->ListarPorUsuario();
 
-session_start();
 
 ?>
 
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -103,6 +107,14 @@ margin-bottom: 2%;
     
 }
 
+.texto{
+
+
+  text-align: center;
+  justify-content: center;
+    
+}
+
 
 </style>
 
@@ -134,15 +146,15 @@ margin-bottom: 2%;
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
               <img src="assets/images/Logosvg.svg" alt="" style="width: 158px;">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="index.php" class="active">Início</a></li>
-              <li><a href="shop.html">Estabelecimentos</a></li>
-              <li><a href="contact.html">Entre em Contato</a></li>
+              <li><a href="shop.php">Estabelecimentos</a></li>
+              <li><a href="contact.php">Entre em Contato</a></li>
 
 
             
@@ -212,12 +224,12 @@ margin-bottom: 2%;
        
         <div class="row mb-3">
             <div class="col d-flex justify-content-end">
-                <button type="button" class="btn btn-success mx-1" data-toggle="modal" data-target="#modalCadastro"><i
-                        class="bi bi-plus-circle"></i> Cadastrar Produto</button>
-                <a class="btn btn-danger mx-1 text-white" href="sair.php"><i class="bi bi-box-arrow-right"></i> Sair</a>
+              
+                        
+                <a class="btn btn-success mx-1" href="estabelecimento_cadastro.php"><i class="bi bi-plus-circle"></i></a>
             </div>
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover ">
             <thead>
  
                 <tr>
@@ -225,21 +237,21 @@ margin-bottom: 2%;
                     <th>Nome</th>
                     <th>Descrição</th>
                     <th>Categoria</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
- 
                 <?php foreach ($estabelecimento as $e) { ?>
                     <tr>
                         
-                        <th><img src="fotos/<?= $e['foto']; ?>" width="150px" ></th>
-                        <th><?= $e['nome']; ?></th>
-                        <th><?= $e['descricao']; ?></th>
-                        <th><?= $e['id_categoria']; ?></th>
+                        <th ><img src="fotos/<?= $e['foto']; ?>" width="200px" height="200px"></th>
+                        <th class="p-5"><?= $e['nome']; ?></th>
+                        <th class="texto p-5 col-4"><?= $e['descricao']; ?></th>
+                        <th class="p-5"><?= $e['nome_categoria']; ?></th>
                         
                        
-                        <td><a href="editar.php?id=<?= $e['id']; ?>">Editar</a> | <a
-                        href="actions/apagar_produto.php?id=<?= $e['id']; ?>">Excluir</a></td>
+                        <td class="p-5"><a href="actions/editar.php?id=<?= $e['estabelecimento_id']; ?>">Editar</a> | <a
+                        href="actions/apagar_produto.php?id=<?= $e['estabelecimento_id']; ?>">Excluir</a></td>
                     <?php } ?>
                 </tr>
             </tbody>

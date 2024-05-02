@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
   <head>
 
@@ -50,16 +50,16 @@ https://templatemo.com/tm-589-lugx-gaming
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="index.php" class="logo">
                       <img src="assets/images/Logosvg.svg" alt="" style="width: 158px;">
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                      <li><a href="index.html" class="active">Início</a></li>
-                      <li><a href="shop.html">Estabelecimentos</a></li>
-                      <li><a href="contact.html">Entre em Contato</a></li>
-                      <li><a href="tela_login1.html">Login</a></li>
+                      <li><a href="index.php" class="active">Início</a></li>
+                      <li><a href="shop.php">Estabelecimentos</a></li>
+                      <li><a href="contact.php">Entre em Contato</a></li>
+                      <li><a href="tela_login1.php">Login</a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>

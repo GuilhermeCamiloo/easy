@@ -55,7 +55,7 @@ class Estabelecimento
 
     public function ListarPorId()
     {
-        $sql = "SELECT * FROM view_estabelecimento";
+        $sql = "SELECT * FROM view_estabelecimento" ;
         $banco = Banco::conectar();
         $comando = $banco->prepare($sql);
         $comando->execute();
@@ -81,7 +81,7 @@ class Estabelecimento
     }
     public function ListarPorUsuario()
     {
-        $sql = "SELECT * FROM estabelecimentos WHERE id_usuario = ?";
+        $sql = "SELECT * FROM view_estabelecimento WHERE id_usuario = ?";
         $banco = Banco::conectar();
         $comando = $banco->prepare($sql);
         $comando->execute([$this->id_usuario]);

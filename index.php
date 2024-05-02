@@ -10,6 +10,7 @@ require_once('actions/classes/Estabelecimento.class.php');
 $e = new Estabelecimento();
 $estabelecimento = $e->ListarTudo();
 
+
 session_start();
 
 ?>
@@ -17,7 +18,7 @@ session_start();
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -115,15 +116,15 @@ https://templatemo.com/tm-589-lugx-gaming
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
+            <a href="index.php" class="logo">
               <img src="assets/images/Logosvg.svg" alt="" style="width: 158px;">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="index.php" class="active">Início</a></li>
-              <li><a href="shop.html">Estabelecimentos</a></li>
-              <li><a href="contact.html">Entre em Contato</a></li>
+              <li><a href="shop.php">Estabelecimentos</a></li>
+              <li><a href="contact.php">Entre em Contato</a></li>
 
 
             
@@ -157,6 +158,9 @@ https://templatemo.com/tm-589-lugx-gaming
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="btn-login" aria-expanded="false">
             Meu Estabelecimento
           </a>
+          
+          
+
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="estabelecimento_cadastro.php">Meu Cadastro </a></li>
             <li><a class="dropdown-item" href="meu_estabelecimento.php">Meu Estabelecimento</a></li>
@@ -285,7 +289,7 @@ https://templatemo.com/tm-589-lugx-gaming
             <div class="down-content">
               <span class="category"><?= $e ['nome_categoria'] ?></span>
               <h4><?= $e ['nome'] ?></h4>
-              <a href="product-details.html"><i class="fa fa-shopping-bag"></i></a>
+              <a href="product-details.php"><i class="fa fa-shopping-bag"></i></a>
             </div>
           </div>
         </div>
@@ -398,7 +402,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-01.jpg" alt=""></a>
+              <a href="product-details.php"><img src="assets/images/categories-01.jpg" alt=""></a>
             </div>
           </div>
         </div>
@@ -406,7 +410,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
+              <a href="product-details.php"><img src="assets/images/categories-05.jpg" alt=""></a>
             </div>
           </div>
         </div>
@@ -414,7 +418,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-03.jpg" alt=""></a>
+              <a href="product-details.php"><img src="assets/images/categories-03.jpg" alt=""></a>
             </div>
           </div>
         </div>
@@ -422,7 +426,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-04.jpg" alt=""></a>
+              <a href="product-details.php"><img src="assets/images/categories-04.jpg" alt=""></a>
             </div>
           </div>
         </div>
@@ -430,7 +434,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
+              <a href="product-details.php"><img src="assets/images/categories-05.jpg" alt=""></a>
             </div>
           </div>
         </div>
@@ -456,7 +460,7 @@ https://templatemo.com/tm-589-lugx-gaming
                 </div>
                 <p>Lorem ipsum dolor consectetur adipiscing, sed do eiusmod tempor incididunt.</p>
                 <div class="main-button">
-                  <a href="shop.html">Adquirir</a>
+                  <a href="shop.php">Adquirir</a>
                 </div>
               </div>
             </div>
