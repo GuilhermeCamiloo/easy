@@ -402,7 +402,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.php"><img src="assets/images/categories-01.jpg" alt=""></a>
+              <a href="product-details.php"><img class="img-fluid" src="assets/images/Alimentação.jpg" alt=""  width="250px" height="200px"></a>
             </div>
           </div>
         </div>
@@ -410,7 +410,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.php"><img src="assets/images/categories-05.jpg" alt=""></a>
+              <a href="product-details.php"><img class="img-fluid" src="assets/images/Hospedagem.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>
@@ -418,7 +418,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.php"><img src="assets/images/categories-03.jpg" alt=""></a>
+              <a href="product-details.php"><img class="img-fluid" src="assets/images/Farmacia.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>
@@ -426,7 +426,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.php"><img src="assets/images/categories-04.jpg" alt=""></a>
+              <a href="product-details.php"><img class="img-fluid" src="assets/images/Serviços-Automotivos.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>
@@ -434,7 +434,7 @@ https://templatemo.com/tm-589-lugx-gaming
           <div class="item">
             <h4>Action</h4>
             <div class="thumb">
-              <a href="product-details.php"><img src="assets/images/categories-05.jpg" alt=""></a>
+              <a href="product-details.php"><img class="img-fluid" src="assets/images/Vestuario.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>
