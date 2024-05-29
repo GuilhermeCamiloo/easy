@@ -72,8 +72,46 @@ https://templatemo.com/tm-589-lugx-gaming
     margin: 0px;
     height: 10px;
     width: 5% !important;
+
+    
   
 }
+
+/* CSS DO FORMULARIO */
+/* Criar as variaveis com as cores */
+:root {
+    --amarelo: #ffcc00;
+    --cinza: #cccccc;
+}
+ 
+/* Não exibir o input radio */
+.estrelas input[type=radio] {
+    display: none;
+    
+    
+}
+ 
+/* Criar as estrelas preenchidas de amarelo*/
+.estrelas label i.opcao.fa:before {
+    content: '\f005';
+    color: var(--amarelo);
+}
+ 
+/* Atribuir o cinza nas estrelas, quando selecionar a estrela retirar o cinza*/
+.estrelas input[type=radio]:checked~label i.fa:before {
+    color: var(--cinza);
+}
+ 
+/* Personalizar a estrela preenchida */
+.estrela-preenchida {
+    color: var(--amarelo);
+}
+ 
+/* Personalizar a estrela vazia */
+.estrela-vazia{
+    color: var(--cinza);
+}
+</style>
 
 </style>
 </head>
@@ -238,7 +276,39 @@ https://templatemo.com/tm-589-lugx-gaming
                   <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica jean shorts edison bulb poutine next level humblebrag la croix adaptogen. Hashtag poke literally locavore, beard marfa kogi bruh artisan succulents seitan tonx waistcoat chambray taxidermy. Same cred meggings 3 wolf moon lomo irony cray hell of bitters asymmetrical gluten-free art party raw denim chillwave tousled try-hard succulents street art.</p>
                 </div>
                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                  <p>Coloring book air plant shabby chic, crucifix normcore raclette cred swag artisan activated charcoal. PBR&B fanny pack pok pok gentrify truffaut kitsch helvetica jean shorts edison bulb poutine next level humblebrag la croix adaptogen. <br><br>Hashtag poke literally locavore, beard marfa kogi bruh artisan succulents seitan tonx waistcoat chambray taxidermy. Same cred meggings 3 wolf moon lomo irony cray hell of bitters asymmetrical gluten-free art party raw denim chillwave tousled try-hard succulents street art.</p>
+                  <p><!-- Inicio do formulário -->
+   <form method="POST" action="processa.php">
+ 
+ <div class="estrelas">
+
+     <!-- Carrega o formulário definindo nenhuma estrela selecionada -->
+     <input type="radio" name="estrela" id="vazio" value="" checked>
+
+     <!-- Opção para selecionar 1 estrela -->
+     <label for="estrela_um"><i class="opcao fa fs-2"></i></label>
+     <input type="radio" name="estrela" id="estrela_um" id="vazio" value="1">
+
+     <!-- Opção para selecionar 2 estrela -->
+     <label for="estrela_dois"><i class="opcao fa fs-2"></i></label>
+     <input type="radio" name="estrela" id="estrela_dois" id="vazio" value="2">
+
+     <!-- Opção para selecionar 3 estrela -->
+     <label for="estrela_tres"><i class="opcao fa fs-2"></i></label>
+     <input type="radio" name="estrela" id="estrela_tres" id="vazio" value="3">
+
+     <!-- Opção para selecionar 4 estrela -->
+     <label for="estrela_quatro"><i class="opcao fa fs-2"></i></label>
+     <input type="radio" name="estrela" id="estrela_quatro" id="vazio" value="4">
+
+     <!-- Opção para selecionar 5 estrela -->
+     <label for="estrela_cinco"><i class="opcao fa fs-2"></i></label>
+     <input type="radio" name="estrela" id="estrela_cinco" id="vazio" value="5"><br><br>
+
+     <!-- Campo para enviar a mensagem -->
+     <textarea class="form-control border border-primary" name="mensagem" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea><br><br>
+
+     <!-- Botão para enviar os dados do formulário --></p>
+     <input type="submit" value="Enviar"><br><br>
                 </div>
               </div>
             </div>
