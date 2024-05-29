@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -19,6 +26,7 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <!--
 
 TemplateMo 589 lugx gaming
@@ -26,6 +34,42 @@ TemplateMo 589 lugx gaming
 https://templatemo.com/tm-589-lugx-gaming
 
 -->
+
+<!-- CSS -->
+
+<style>
+
+.nav-link {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 0px; /* ajuste o valor conforme necessário */
+    
+}
+
+
+.dropdown-item {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 0px; /* ajuste o valor conforme necessário */
+    margin-top: 5px;
+    
+}
+
+.dropdown-item2 {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 0px; /* ajuste o valor conforme necessário */
+    margin: 0px;
+    height: 10px;
+    width: 5% !important;
+  
+}
+
+</style>
+
   </head>
 
 <body>
@@ -55,16 +99,59 @@ https://templatemo.com/tm-589-lugx-gaming
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="index.php" class="active">Início</a></li>
-                      <li><a href="shop.php">Estabelecimentos</a></li>
-                      <li><a href="contact.php">Entre em Contato</a></li>
-                      <li><a href="tela_login1.php">Login</a></li>
-                  </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
+            <ul class="nav">
+              <li><a href="index.php">Início</a></li>
+              <li><a href="shop.php">Estabelecimentos</a></li>
+              <li><a href="contact.php" class="active">Entre em Contato</a></li>
+
+  <?php if(!isset($_SESSION['usuario'])) { ?>
+
+              <li><a href="tela_login1.php" id="btn-login">Login</a></li>
+
+    <?php }elseif(isset($_SESSION['usuario']) && $_SESSION['usuario']['id_tipo'] == 2){ ?>
+
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="btn-login" aria-expanded="false">
+            Minha Conta
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Meus Dados</a></li>
+            <li><a class="dropdown-item" id="avaliações" href="#">Minhas Avaliações</a></li>           
+            <li><hr class="dropdown-divider"></li>
+            <li ><a class="dropdown-item" id="sair" href="sair.php"><i class="bi bi-arrow-bar-left"></i> Sair</a></li>
+           
+          </ul>
+        </li>
+
+
+
+      <?php }elseif(isset($_SESSION['usuario']) && $_SESSION['usuario']['id_tipo'] == 1){ ?>
+
+
+        <li class="nav-item dropdown menu-azul">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="btn-login" aria-expanded="false">
+            Meu Estabelecimento
+          </a>
+          
+          
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="estabelecimento_cadastro.php">Meu Cadastro </a></li>
+            <li><a class="dropdown-item" href="meu_estabelecimento.php">Meu Estabelecimento</a></li>
+            <li><a class="dropdown-item" href="#">Minhas Avaliações</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="sair.php"><i class="bi bi-box-arrow-left"></i></a></li>
+
+
+            
+          </ul>
+        </li>
+<?php } ?>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
                 </nav>
             </div>
         </div>
@@ -92,11 +179,11 @@ https://templatemo.com/tm-589-lugx-gaming
               <h6>Contate-nos</h6>
               <h2>Seja Bem-Vindo!</h2>
             </div>
-            <p>LUGX Gaming Template is based on the latest Bootstrap 5 CSS framework. This template is provided by TemplateMo and it is suitable for your gaming shop ecommerce websites. Feel free to use this for any purpose. Thank you.</p>
+            <p>Nossa empresa sempre presa pelo compromisso com os nossos clientes e comerciantes, que encontram aqui tudo o que precisam para encontrar o comércio que melhor lhe atendam ou captar clientes para aumentar a relevância de seu próprio negócio.</p>
             <ul>
-              <li><span>Endereço</span> Sunny Isles Beach, FL 33160, United States</li>
-              <li><span>Telefone</span> +123 456 7890</li>
-              <li><span>Email</span> lugx@contact.com</li>
+              <li><span>Endereço</span> R. Suíça, 1255 - Santana</li>
+              <li><span>Telefone</span> +55 3636-0101</li>
+              <li><span>Email</span> MercadoEasy@gmail.com</li>
             </ul>
           </div>
         </div>
@@ -105,7 +192,7 @@ https://templatemo.com/tm-589-lugx-gaming
             <div class="row">
               <div class="col-lg-12">
                 <div id="map">
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12469.776493332698!2d-80.14036379941481!3d25.907788681148624!2m3!1f357.26927939317244!2f20.870722720054623!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x88d9add4b4ac788f%3A0xe77469d09480fcdb!2sSunny%20Isles%20Beach!5e1!3m2!1sen!2sth!4v1642869952544!5m2!1sen!2sth" width="100%" height="325px" frameborder="0" style="border:0; border-radius: 23px;" allowfullscreen=""></iframe>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14699.590794402222!2d-45.455479397200804!3d-22.917143867961755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ccefdec6e70eef%3A0xa6fed360282c1ca7!2sSenac%20Pindamonhangaba!5e0!3m2!1spt-BR!2sbr!4v1716937159298!5m2!1spt-BR!2sbr" width="100%" height="325px" frameborder="0" style="border:0; border-radius: 23px;" allowfullscreen=""></iframe>
                 </div>
               </div>
               <div class="col-lg-12">
@@ -154,19 +241,24 @@ https://templatemo.com/tm-589-lugx-gaming
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2048 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank">Design: TemplateMo</a></p>
+        <p>Copyright © 2024 Mercado Easy Company. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank"></a></p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/js/isotope.min.js"></script>
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+    <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z" />
+  </svg>
 
   </body>
 </html>

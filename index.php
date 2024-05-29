@@ -47,15 +47,9 @@ https://templatemo.com/tm-589-lugx-gaming
 
 -->
 
-
-
 <!-- CSS -->
 
 <style>
-
-
-
-
 
 .nav-link {
     display: flex !important;
@@ -126,10 +120,6 @@ https://templatemo.com/tm-589-lugx-gaming
               <li><a href="shop.php">Estabelecimentos</a></li>
               <li><a href="contact.php">Entre em Contato</a></li>
 
-
-            
-
-
   <?php if(!isset($_SESSION['usuario'])) { ?>
 
               <li><a href="tela_login1.php" id="btn-login">Login</a></li>
@@ -195,11 +185,7 @@ https://templatemo.com/tm-589-lugx-gaming
             <p> Aqui você encontra a maior variedade de estabelecimentos da sua região! Pesquise abaixo o que deseja.
             </p>
             <div class="search-input">
-              <form id="search" action="#">
-
-
-
-
+              <form id="search" action="buscar.php">
                 <input type="text" placeholder=" Procure Aqui!" id='searchText' name="searchKeyword" onkeypress="handle" />
                 <button role="button">
                   Procurar
@@ -211,8 +197,6 @@ https://templatemo.com/tm-589-lugx-gaming
         <div class="col-lg-4 offset-lg-2">
           <div class="right-image">
             <img src="assets/images/pizzaria.jpg" alt="">
-            <span class="price">A</span>
-
           </div>
         </div>
       </div>
@@ -299,142 +283,52 @@ https://templatemo.com/tm-589-lugx-gaming
     </div>
   </div>
 
-  <!-- <div class="section most-played">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="section-heading">
-            <h6>TOP GAMES</h6>
-            <h2>Most Played</h2>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="main-button">
-            <a href="shop.html">View All</a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-01.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-02.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-03.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-04.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-05.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-6 col-sm-6">
-          <div class="item">
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/top-game-06.jpg" alt=""></a>
-            </div>
-            <div class="down-content">
-                <span class="category">Adventure</span>
-                <h4>Assasin Creed</h4>
-                <a href="product-details.html">Explore</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <div class="section categories">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <div class="section-heading">
-            <h6>Categoriaas</h6>
+            <h6>Categorias</h6>
             <h2>Categorias Populares</h2>
           </div>
         </div>
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Action</h4>
+            <h4>Alimentação</h4>
             <div class="thumb">
-              <a href="product-details.php"><img class="img-fluid" src="assets/images/Alimentação.jpg" alt=""  width="250px" height="200px"></a>
+              <a href="product-details-categoria.php"><img class="img-fluid" src="assets/images/Alimentação.jpg" alt=""  width="250px" height="200px"></a>
             </div>
           </div>
         </div>
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Action</h4>
+            <h4>Hospedagem</h4>
             <div class="thumb">
-              <a href="product-details.php"><img class="img-fluid" src="assets/images/Hospedagem.jpg" alt="" width="250px" height="200px"></a>
+              <a href="product-details-categoria.php"><img class="img-fluid" src="assets/images/Hospedagem.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Action</h4>
+            <h4>Farmacia</h4>
             <div class="thumb">
-              <a href="product-details.php"><img class="img-fluid" src="assets/images/Farmacia.jpg" alt="" width="250px" height="200px"></a>
+              <a href="product-details-categoria.php"><img class="img-fluid" src="assets/images/Farmacia.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Action</h4>
+            <h4>Serviços Automotivos</h4>
             <div class="thumb">
-              <a href="product-details.php"><img class="img-fluid" src="assets/images/Serviços-Automotivos.jpg" alt="" width="250px" height="200px"></a>
+              <a href="product-details-categoria.php"><img class="img-fluid" src="assets/images/Serviços-Automotivos.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Action</h4>
+            <h4>Vestuario</h4>
             <div class="thumb">
-              <a href="product-details.php"><img class="img-fluid" src="assets/images/Vestuario.jpg" alt="" width="250px" height="200px"></a>
+              <a href="product-details-categoria.php"><img class="img-fluid" src="assets/images/Vestuario.jpg" alt="" width="250px" height="200px"></a>
             </div>
           </div>
         </div>

@@ -55,10 +55,10 @@ class Estabelecimento
 
     public function ListarPorId()
     {
-        $sql = "SELECT * FROM view_estabelecimento" ;
+        $sql = "SELECT * FROM view_estabelecimento WHERE estabelecimento_id = ?" ;
         $banco = Banco::conectar();
         $comando = $banco->prepare($sql);
-        $comando->execute();
+        $comando->execute([$this->id]);
         $arr_resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
         Banco::desconectar();
         return $arr_resultado;
@@ -85,6 +85,16 @@ class Estabelecimento
         $banco = Banco::conectar();
         $comando = $banco->prepare($sql);
         $comando->execute([$this->id_usuario]);
+        $arr_resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+        Banco::desconectar();
+        return $arr_resultado;
+    }
+    public function Buscar()
+    {
+        $sql = "SELECT * FROM view_estabelecimento WHERE nome LIKE CONCAT('%' ,?, '%')";
+        $banco = Banco::conectar();
+        $comando = $banco->prepare($sql);
+        $comando->execute([$this->nome]);
         $arr_resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
         Banco::desconectar();
         return $arr_resultado;
