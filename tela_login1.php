@@ -164,7 +164,7 @@ https://templatemo.com/tm-589-lugx-gaming
   <footer class="col-lg-12  min-vh-1 fixed-bottom" id="rodape">
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2028 Mercado Easy. &nbsp;&nbsp; <a rel="nofollow"></p>
+        <p>Copyright © 2024 Mercado Easy. &nbsp;&nbsp; <a rel="nofollow"></p>
       </div>
     </div>
     </div>
