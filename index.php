@@ -310,7 +310,7 @@ https://templatemo.com/tm-589-lugx-gaming
         </div>
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Farmacia</h4>
+            <h4>Farmácia</h4>
             <div class="thumb">
               <a href="product-details-categoria.php"><img class="img-fluid" src="assets/images/Farmacia.jpg" alt="" width="250px" height="200px"></a>
             </div>
@@ -326,7 +326,7 @@ https://templatemo.com/tm-589-lugx-gaming
         </div>
         <div class="col-lg col-sm-6 col-xs-12">
           <div class="item">
-            <h4>Vestuario</h4>
+            <h4>Vestuário</h4>
             <div class="thumb">
               <a href="product-details-categoria.php"><img class="img-fluid" src="assets/images/Vestuario.jpg" alt="" width="250px" height="200px"></a>
             </div>
@@ -346,10 +346,10 @@ https://templatemo.com/tm-589-lugx-gaming
                 <div class="section-heading">
                   <h6>Planos | Clientes</h6> <br>
 
-                  <h6 class="list-group-item bi bi-check-lg text-black"> Cupons de desconto </h6> <br>
-                  <h6 class="list-group-item bi bi-check-lg text-black"> Acessibilidade para compras </h6><br>
-                  <h6 class="list-group-item bi bi-check-lg text-black "> Receba cashback de suas compras </h6><br>
-                  <h6 class="list-group-item bi bi-check-lg text-black"> E muitos outros beneficios.</h6>
+                  <h6 class="list-group-item bi bi-check-lg text-black"> Cupons de desconto. </h6> <br>
+                  <h6 class="list-group-item bi bi-check-lg text-black"> Acessibilidade para compras. </h6><br>
+                  <h6 class="list-group-item bi bi-check-lg text-black "> Receba cashback de suas compras.</h6><br>
+                  <h6 class="list-group-item bi bi-check-lg text-black"> E muitos outros benefícios.</h6>
 
                 </div>
                 <p>Lorem ipsum dolor consectetur adipiscing, sed do eiusmod tempor incididunt.</p>
