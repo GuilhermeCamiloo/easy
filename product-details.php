@@ -7,6 +7,15 @@ if (!isset($_GET['id'])) {
   $e->id = $_GET['id'];
   $dados = $e->ListarPorID()[0];
 }
+
+require_once('actions/classes/Avaliacao.class.php');
+$avaliacao = new Avaliacao();
+
+
+
+
+
+
 session_start();
 
 ?>
