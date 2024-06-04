@@ -16,7 +16,7 @@ public function CadastrarAvaliacao()
 {
 
     $sql = "INSERT INTO avaliacao(id_estabelecimento, id_usuario, nota, comentario) 
-    VALUES (?,?,?,?)";
+    VALUES (?, ?, ?, ?)";
     $banco = Banco::conectar();
     $comando = $banco->prepare($sql);
     $comando->execute([$this->id_estabelecimento, $this->id_usuario, $this->nota, $this->comentario]);
