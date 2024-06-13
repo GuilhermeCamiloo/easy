@@ -110,6 +110,42 @@ https://templatemo.com/tm-589-lugx-gaming
                   <div id="emailCadHelp" class="form-text">E-mail que será utilizado para acessar o sistema.</div>
                 </div>
                 <div class="mb-3">
+                  <label for="emailCad" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="telefone">
+                  <div id="emailCadHelp" class="form-text">Telefone que será utilizado para contato.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="emailCad" class="form-label">Endereço</label>
+                  <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email">
+                  <div id="emailCadHelp" class="form-text">Endereço que será utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="emailCad" class="form-label">número</label>
+                  <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email">
+                  <div id="emailCadHelp" class="form-text">número que será utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="emailCad" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email">
+                  <div id="emailCadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="emailCad" class="form-label">Estado</label>
+                  <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email">
+                  <div id="emailCadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="emailCad" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email">
+                  <div id="emailCadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="emailCad" class="form-label">Complemento</label>
+                  <input type="text" class="form-control" id="emailCad" aria-describedby="emailCadHelp" name="email">
+                  <div id="emailCadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
+                
+                <div class="mb-3">
                   <label for="senhaCad" class="form-label">Senha</label>
                   <input type="password" class="form-control" id="senhaCad" name="senha">
                 </div>
