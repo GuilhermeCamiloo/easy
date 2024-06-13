@@ -9,7 +9,9 @@ if (!isset($_GET['id'])) {
 }
 
 require_once('actions/classes/Avaliacao.class.php');
-$avaliacao = new Avaliacao();
+$a = new Avaliacao();
+$avaliacao = $a->ListarTudo();
+
 
 session_start();
 
@@ -150,10 +152,6 @@ https://templatemo.com/tm-589-lugx-gaming
               <li><a href="shop.php">Estabelecimentos</a></li>
               <li><a href="contact.php">Entre em Contato</a></li>
 
-
-
-
-
               <?php if (!isset($_SESSION['usuario'])) { ?>
 
                 <li><a href="tela_login1.php" id="btn-login">Login</a></li>
@@ -175,10 +173,7 @@ https://templatemo.com/tm-589-lugx-gaming
                   </ul>
                 </li>
 
-
-
               <?php } elseif (isset($_SESSION['usuario']) && $_SESSION['usuario']['id_tipo'] == 1) { ?>
-
 
                 <li class="nav-item dropdown menu-azul">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="btn-login" aria-expanded="false">
@@ -193,19 +188,10 @@ https://templatemo.com/tm-589-lugx-gaming
                     </li>
                     <li><a class="dropdown-item" href="sair.php"><i class="bi bi-box-arrow-left"></i></a></li>
 
-
-
                   </ul>
                 </li>
 
-
               <?php } ?>
-
-
-
-
-
-
 
             </ul>
             <a class='menu-trigger'>
@@ -274,6 +260,7 @@ https://templatemo.com/tm-589-lugx-gaming
                     <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews" aria-selected="false">Avaliações</button>
                   </li>
                 </ul>
+
               </div>
               <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
@@ -281,120 +268,103 @@ https://templatemo.com/tm-589-lugx-gaming
                   <br>
                   <p></p>
                 </div>
-                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+              </div>
+              <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                <?php if (!isset($_SESSION['usuario'])) { ?>
+
+                  <?php foreach ($avaliacao as $a) { ?>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                          <div class="down-content">
+                            <span class="category"><?= $a['Usuario'] ?></span>
+                            <h4><?= $a['comentario'] ?></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                  <?php } ?>
+
+
+                <?php } else { ?>
+
+
                   <p><!-- Inicio do formulário -->
                   <form method="POST" action="actions/cadastrar_avaliacao.php">
 
-                      <div class="estrelas">
+                    <div class="estrelas">
 
-                        <!-- Carrega o formulário definindo nenhuma estrela selecionada -->
-                        <input type="radio" name="nota" id="vazio" value="" checked>
+                      <!-- Carrega o formulário definindo nenhuma estrela selecionada -->
+                      <input type="radio" name="nota" id="vazio" value="" checked>
 
-                        <!-- Opção para selecionar 1 estrela -->
-                        <label for="estrela_um"><i class="opcao fa fs-2"></i></label>
-                        <input type="radio" name="nota" id="estrela_um" id="vazio" value="1">
+                      <!-- Opção para selecionar 1 estrela -->
+                      <label for="estrela_um"><i class="opcao fa fs-2"></i></label>
+                      <input type="radio" name="nota" id="estrela_um" id="vazio" value="1">
 
-                        <!-- Opção para selecionar 2 estrela -->
-                        <label for="estrela_dois"><i class="opcao fa fs-2"></i></label>
-                        <input type="radio" name="nota" id="estrela_dois" id="vazio" value="2">
+                      <!-- Opção para selecionar 2 estrela -->
+                      <label for="estrela_dois"><i class="opcao fa fs-2"></i></label>
+                      <input type="radio" name="nota" id="estrela_dois" id="vazio" value="2">
 
-                        <!-- Opção para selecionar 3 estrela -->
-                        <label for="estrela_tres"><i class="opcao fa fs-2"></i></label>
-                        <input type="radio" name="nota" id="estrela_tres" id="vazio" value="3">
+                      <!-- Opção para selecionar 3 estrela -->
+                      <label for="estrela_tres"><i class="opcao fa fs-2"></i></label>
+                      <input type="radio" name="nota" id="estrela_tres" id="vazio" value="3">
 
-                        <!-- Opção para selecionar 4 estrela -->
-                        <label for="estrela_quatro"><i class="opcao fa fs-2"></i></label>
-                        <input type="radio" name="nota" id="estrela_quatro" id="vazio" value="4">
+                      <!-- Opção para selecionar 4 estrela -->
+                      <label for="estrela_quatro"><i class="opcao fa fs-2"></i></label>
+                      <input type="radio" name="nota" id="estrela_quatro" id="vazio" value="4">
 
-                        <!-- Opção para selecionar 5 estrela -->
-                        <label for="estrela_cinco"><i class="opcao fa fs-2"></i></label>
-                        <input type="radio" name="nota" id="estrela_cinco" id="vazio" value="5"><br><br>
+                      <!-- Opção para selecionar 5 estrela -->
+                      <label for="estrela_cinco"><i class="opcao fa fs-2"></i></label>
+                      <input type="radio" name="nota" id="estrela_cinco" id="vazio" value="5"><br><br>
 
-                        <!-- Campo para enviar a mensagem -->
-                        <textarea class="form-control border border-primary" name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea><br><br>
+                      <!-- Campo para enviar a mensagem -->
+                      <textarea class="form-control border border-primary" name="comentario" rows="4" cols="30" placeholder="Digite o seu comentário..."></textarea><br><br>
 
-                        <!-- Botão para enviar os dados do formulário --></p>
-                        <input type="submit" value="Enviar"><br><br>
-                      </div>
-                    
+                      <input type="hidden" value="<?= $dados['estabelecimento_id']; ?>" name="id_estabelecimento">
+
+                      <!-- Botão para enviar os dados do formulário --></p>
+                      <input type="submit" value="Enviar"><br><br>
+                    </div>
+
                   </form>
+                  <?php foreach ($avaliacao as $a) { ?>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-6">
+                        <div class="item">
+                          <div class="down-content">
+                            <span class="category"><?= $a['Usuario'] ?></span>
+                            <h4><?= $a['comentario'] ?></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div><br>
+                  <?php } ?>
 
-                  <!-- <div class="section categories related-games">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="section-heading">
-            <h6>Action</h6>
-            <h2>Related Games</h2>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="main-button">
-            <a href="shop.html">View All</a>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-01.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-03.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-04.jpg" alt=""></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg col-sm-6 col-xs-12">
-          <div class="item">
-            <h4>Action</h4>
-            <div class="thumb">
-              <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
+              </div>
+            <?php } ?>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div> -->
+    <footer>
+      <div class="container">
+        <div class="col-lg-12">
+          <p>Copyright © 2024 Mercado Easy Company. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank"></a></p>
+        </div>
+      </div>
+    </footer>
 
-                  <footer>
-                    <div class="container">
-                      <div class="col-lg-12">
-                        <p>Copyright © 2024 Mercado Easy Company. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank"></a></p>
-                      </div>
-                    </div>
-                  </footer>
-
-                  <!-- Scripts -->
-                  <!-- Bootstrap core JavaScript -->
-                  <script src="vendor/jquery/jquery.min.js"></script>
-                  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-                  <script src="assets/js/isotope.min.js"></script>
-                  <script src="assets/js/owl-carousel.js"></script>
-                  <script src="assets/js/counter.js"></script>
-                  <script src="assets/js/custom.js"></script>
-                  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-                  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/counter.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </body>
 

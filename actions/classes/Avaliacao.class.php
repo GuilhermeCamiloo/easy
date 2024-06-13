@@ -25,6 +25,16 @@ public function CadastrarAvaliacao()
     
 }
 
+public function ListarTudo()
+    {
+        $sql = "SELECT * FROM view_avaliacao";
+        $banco = Banco::conectar();
+        $comando = $banco->prepare($sql);
+        $comando->execute();
+        $arr_resultado = $comando->fetchAll(PDO::FETCH_ASSOC);
+        Banco::desconectar();
+        return $arr_resultado;
+    }
 
 }
 
