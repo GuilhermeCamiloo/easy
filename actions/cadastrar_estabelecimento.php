@@ -9,7 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $estabelecimentose->id_usuario = $_SESSION['usuario']['id'];
     $estabelecimentose->nome = strip_tags($_POST['nome']);
     $estabelecimentose->descricao = strip_tags($_POST['descricao']);
- 
+    $estabelecimentose->telefone = strip_tags($_POST['telefone']);
+    $estabelecimentose->endereco= strip_tags($_POST['endereco']);
+    $estabelecimentose->numero= strip_tags($_POST['numero']);
+    $estabelecimentose->cidade = strip_tags($_POST['cidade']);
+    $estabelecimentose->estado = strip_tags($_POST['estado']);
+    $estabelecimentose->cep = strip_tags($_POST['cep']);
+    $estabelecimentose->complemento = strip_tags($_POST['complemento']);
+
     // Verificar se está chegando uma foto do formulário:
     if ($_FILES['foto']['size'] > 0) {
         $destino = "../fotos/";
@@ -27,27 +34,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Mover o arquivo para a pasta:
         if (move_uploaded_file($_FILES['foto']['tmp_name'], $destino . $novo_nome)) {
             $estabelecimentose->foto = $novo_nome;
-            print_r($estabelecimentose->CadastrarEnderecoE());
-            // if ($estabelecimentose->CadastrarComFoto() == 1) {
-            //     // Redirecionar:
-            //    // header("Location: ../index.php");
-            //     exit(); // Finalizar o script após redirecionamento
-            // } else {
-            //     echo "Falha ao cadastrar o produto.";
-            // }
+          
+            if ($estabelecimentose->CadastrarEnderecoE() == 3) {
+                // Redirecionar:
+               header("Location: ../index.php");
+                exit(); // Finalizar o script após redirecionamento
+            } else {
+                echo "Falha ao cadastrar o produto.";
+            }
         } else {
             echo "Falha ao mover a imagem!";
         }
     } else {
         // Cadastro sem foto
-        print_r($estabelecimentose->CadastrarSemFoto());
-        // if ($estabelecimentose->CadastrarSemFoto() == 1) {
-        //     // Redirecionar:
-        //     //header("Location: ../index.php");
-        //     //exit(); // Finalizar o script após redirecionamento
-        // } else {
-        //     echo "Falha ao cadastrar o produto.";
-        // }
+        
+        if ($estabelecimentose->CadastrarSemFoto() == 2) {
+            // Redirecionar:
+            header("Location: ../index.php");
+            exit(); // Finalizar o script após redirecionamento
+        } else {
+            echo "Falha ao cadastrar o produto.";
+        }
     }
 }
 ?>
