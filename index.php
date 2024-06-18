@@ -261,7 +261,7 @@ https://templatemo.com/tm-589-lugx-gaming
         </div>
         <div class="col-lg-6">
           <div class="main-button">
-            <a href="shop.php">View All</a>
+            <a href="shop.php">Mostrar Tudo</a>
           </div>
         </div>
         <?php foreach ($estabelecimento as $e) { ?>
