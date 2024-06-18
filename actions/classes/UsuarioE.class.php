@@ -10,15 +10,20 @@ class UsuarioE{
     public $numero;
     public $endereco;
     public $complemento;
+    public $nome;
+    public $email;
+    public $senha;
+    public $id_tipo;
 
 public function CadastrarEndereco()
     {
-        $sql = "CALL cadastrarEndereco  
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "CALL cadastrarEndereco (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $banco = Banco::conectar();
         $comando = $banco->prepare($sql);
 
-        $comando->execute([$this->cidade, $this->estado, $this->cep, $this->numero,$this->endereco,$this->complemento]);
+        $hash = hash("sha256", $this->senha);
+
+        $comando->execute([$this->cidade, $this->estado, $this->cep, $this->numero,$this->endereco,$this->complemento,$this->nome,$this->email, $hash,$this->id_tipo]);
         Banco::desconectar();
         return $comando->rowCount();
     }

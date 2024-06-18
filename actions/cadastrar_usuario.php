@@ -1,31 +1,25 @@
 <?php
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    require_once('classes/Usuario.class.php');
-    
-
-    $usuario = new Usuario();
-    $usuario->nome = $_POST['nome'];
-    $usuario->email = $_POST['email'];
-    $usuario->senha = $_POST['senha'];
-
     require_once('classes/UsuarioE.class.php');
-    $usuarioe = new UsuarioE();
+
+    $usuarioe = new Usuarioe();
+
+    $usuarioe->nome = $_POST['nome'];
+    $usuarioe->email = $_POST['email'];
+    $usuarioe->senha = $_POST['senha'];
 
     $usuarioe->cidade = $_POST['cidade'];
     $usuarioe->estado = $_POST['estado'];
     $usuarioe->cep = $_POST['cep'];
     $usuarioe->numero = $_POST['numero'];
-    $usuarioe-> endereco= $_POST['endereco'];
-    $usuarioe-> complemento= $_POST['complemento'];
-    
+    $usuarioe->endereco= $_POST['endereco'];
+    $usuarioe->complemento= $_POST['complemento'];  
 
-    
-
-  
+    $usuarioe->id_tipo= $_POST['id_tipo'];
 
 
-    if($usuario->Cadastrar() == 1 && $usuarioe->CadastrarEndereco() == 1){
+    if($usuarioe->CadastrarEndereco() == 2){
         header('Location: ../tela_login1.php');
     }else{
        echo "Falha ao cadastrar!.";

@@ -74,7 +74,7 @@ https://templatemo.com/tm-589-lugx-gaming
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
           <div class="mb-5">
             <div class="text-center mb-4">
-              <a href="#!">
+              <a href="index.php">
                 <img src="assets/images/Logosvg.svg" alt="BootstrapBrain Logo" width="175" height="57">
               </a>
             </div>
@@ -91,13 +91,13 @@ https://templatemo.com/tm-589-lugx-gaming
 
 
                 <div class="mb-3">
-                  <label for="nome2Cad" class="form-label">Nome: </label>
+                  <label for="nomecade" class="form-label">Nome: </label>
                   <input type="text" class="form-control" id="nome" name="nome">
                 </div>
 
 
                 <div class="mb-3">
-                  <label for="nomeCad" class="form-label">Categoria: </label>
+                  <label for="categoriacade" class="form-label">Categoria: </label>
 
 
                   <select class="form-control" id="categoriaProduto" name="id_categoria">
@@ -113,8 +113,8 @@ https://templatemo.com/tm-589-lugx-gaming
                 </div>
 
                 <div class="mb-3">
-                  <label for="senhaCad" class="form-label">Descricao:</label>
-                  <input type="text" class="form-control" id="descricao" name="descricao">
+                  <label for="descricaocade" class="form-label">Descricao:</label>
+                  <input type="text" class="form-control" id="descricaocade" name="descricao">
                 </div>
 
                 <div class="mb-3">
@@ -122,7 +122,41 @@ https://templatemo.com/tm-589-lugx-gaming
                   <input type="file" class="form-control-file" id="foto" name="foto">
                 </div>
 
-
+                <div class="mb-3">
+                  <label for="telefonecad" class="form-label">Telefone</label>
+                  <input type="text" class="form-control" id="telefonecad" aria-describedby="telefonecadHelp" name="telefone">
+                  <div id="telefonecadHelp" class="form-text">Telefone que será utilizado para contato.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="enderecocad" class="form-label">Endereço</label>
+                  <input type="text" class="form-control" id="enderecocad" aria-describedby="enderecocadHelp" name="endereco">
+                  <div id="enderecocadHelp" class="form-text">Endereço que será utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="numerocad" class="form-label">número</label>
+                  <input type="text" class="form-control" id="numerocad" aria-describedby="numerocadHelp" name="numero">
+                  <div id="numerocadHelp" class="form-text">número que será utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="cidadecad" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="cidadecad" aria-describedby="cidadecadHelp" name="cidade">
+                  <div id="cidadecadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="estadocad" class="form-label">Estado</label>
+                  <input type="text" class="form-control" id="estadocad" aria-describedby="estadocadHelp" name="estado">
+                  <div id="estadocadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="cepcad" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="cepcad" aria-describedby="cepcadHelp" name="cep">
+                  <div id="cepcadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="complementocad" class="form-label">Complemento</label>
+                  <input type="text" class="form-control" id="complementocad" aria-describedby="complementocadHelp" name="complemento">
+                  <div id="complementocadHelp" class="form-text">Utilizado para localização no sistema.</div>
+                </div>
 
                 <div class="mb-3">
                   <label for="emailCad" class="form-label"></label>

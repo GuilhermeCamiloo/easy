@@ -354,7 +354,7 @@ https://templatemo.com/tm-589-lugx-gaming
                 </div>
                 <p>Lorem ipsum dolor consectetur adipiscing, sed do eiusmod tempor incididunt.</p>
                 <div class="main-button">
-                  <a href="shop.php">Adquirir</a>
+                  <a href="#">Adquirir</a>
                 </div>
               </div>
             </div>
