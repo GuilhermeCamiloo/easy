@@ -55,11 +55,65 @@ https://templatemo.com/tm-589-lugx-gaming
 <!-- CSS -->
 
 <style>
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
 
 
+select {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
 
 
-
+.custom-nav-link {
+    color: #000 !important;
+}
 .nav-link {
     display: flex !important;
     justify-content: center;
@@ -88,34 +142,6 @@ https://templatemo.com/tm-589-lugx-gaming
     width: 5% !important;
   
 }
-
-.container1{
-
-text-align: center;
-
-
-}
-
-.título{
-color: white ;
-margin-bottom: 2%;
-}
-
-.center-image{
-
-    justify-content: center;
-    
-}
-
-.texto{
-
-
-  text-align: center;
-  justify-content: center;
-    
-}
-
-
 </style>
 
 
@@ -152,9 +178,10 @@ margin-bottom: 2%;
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li><a href="index.php" class="active">Início</a></li>
-              <li><a href="shop.php">Estabelecimentos</a></li>
-              <li><a href="contact.php">Entre em Contato</a></li>
+            <li><a href="index.php" class="nav-link custom-nav-link">Início</a></li>
+            <li><a href="shop.php" class="nav-link custom-nav-link">Estabelecimentos</a></li>
+            <li><a href="contact.php" class="nav-link custom-nav-link">Entre em Contato</a></li>
+
 
 
             
@@ -251,7 +278,7 @@ margin-bottom: 2%;
                         
                        
                         <td class="p-5"><a href="actions/editar.php?id=<?= $e['estabelecimento_id']; ?>">Editar</a> | <a
-                        href="actions/apagar_produto.php?id=<?= $e['estabelecimento_id']; ?>">Excluir</a></td>
+                        href="actions/apagar_estabelecimento.php?id=<?= $e['estabelecimento_id']; ?>">Excluir</a></td>
                     <?php } ?>
                 </tr>
             </tbody>
@@ -632,12 +659,18 @@ margin-bottom: 2%;
   </div> -->
 
   <footer>
-    <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © 2024 Mercado Easy Company. &nbsp;&nbsp; <a rel="nofollow" href="https://templatemo.com" target="_blank"></a></p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <p class="text-center">Copyright © 2024 Mercado Easy Company.</p>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
+
+
+
+
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->

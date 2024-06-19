@@ -133,7 +133,7 @@ https://templatemo.com/tm-589-lugx-gaming
                   <div id="enderecocadHelp" class="form-text">Endereço que será utilizado para localização no sistema.</div>
                 </div>
                 <div class="mb-3">
-                  <label for="numerocad" class="form-label">número</label>
+                  <label for="numerocad" class="form-label">Número</label>
                   <input type="text" class="form-control" id="numerocad" aria-describedby="numerocadHelp" name="numero">
                   <div id="numerocadHelp" class="form-text">número que será utilizado para localização no sistema.</div>
                 </div>
